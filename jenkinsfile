@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    environment {
+    AWS_ACCESS_KEY_ID = "aws"
+    AWS_SECRET_ACCESS_KEY = "pass"
+    }
+    stages {
+        stage('build') {
+        steps {
+            echo "Phani"
+        }
+    }
+    }
+    stage('Dockerbuild'){
+           steps {
+               sh 'mvn clean package'
+               sh 'docker build -t Chintu .'
+      }
+   }
+  }
