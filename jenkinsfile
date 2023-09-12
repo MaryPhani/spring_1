@@ -17,4 +17,15 @@ pipeline {
                sh 'docker build -t Chintu .'
       }
    }
+    stage('Snyk Test') {
+            steps {
+                echo 'Snyk Testing...'
+                snykSecurity (
+                    projectName: 'Snyk_security_tool', 
+                    snykInstallation: 'snyk@latest', 
+                    snykTokenId: 'snyk_api',
+                    failOnIssues: false
+                )
+            }
+        }
   }
