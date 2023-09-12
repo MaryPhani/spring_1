@@ -11,7 +11,7 @@ pipeline {
         }
     }
     }
-        stage('Dockerbuild'){
+        stage('Dockerbuild') {
            steps {
                sh 'mvn clean package'
                sh 'docker build -t Chintu .'
