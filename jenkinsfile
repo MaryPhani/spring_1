@@ -11,13 +11,13 @@ pipeline {
         }
     }
     }
-    stage('Dockerbuild'){
+        stage('Dockerbuild'){
            steps {
                sh 'mvn clean package'
                sh 'docker build -t Chintu .'
       }
    }
-    stage('Snyk Test') {
+        stage('Snyk Test') {
             steps {
                 echo 'Snyk Testing...'
                 snykSecurity (
